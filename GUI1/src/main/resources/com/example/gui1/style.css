@@ -1,0 +1,362 @@
+.root.light-mode {
+    -bg-base: #ffffff;
+    -bg-surface: #ffffff;
+    -bg-header: #f7f6f3;
+    -bg-hover: #f1f1ef;
+    -bg-control: #f7f6f3;
+    -text-primary: #37352f;
+    -text-secondary: #9b9a97;
+    -border-color: #e9e9e7;
+    -accent: #2383e2;
+    -fx-background-color: -bg-base;
+}
+
+.root.dark-mode {
+    -bg-base: #191919;
+    -bg-surface: #1f1f1f;
+    -bg-header: #252525;
+    -bg-hover: #2c2c2c;
+    -bg-control: #2c2c2c;
+    -text-primary: #e6e6e4;
+    -text-secondary: #9b9a97;
+    -border-color: #373737;
+    -accent: #4d9fef;
+    -fx-background-color: -bg-base;
+}
+
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.label {
+    -fx-text-fill: -text-primary;
+}
+
+/* =========================================================
+   Layout
+   ========================================================= */
+
+.root-layout {
+    -fx-background-color: -bg-base;
+}
+
+.toolbar {
+    -fx-background-color: -bg-surface;
+    -fx-padding: 16 24 16 24;
+    -fx-border-color: transparent transparent -border-color transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.toolbar-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.search-field {
+    -fx-background-color: -bg-control;
+    -fx-background-radius: 6;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 6;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-secondary;
+    -fx-padding: 6 12 6 12;
+    -fx-pref-width: 240;
+    -fx-highlight-fill: -accent;
+    -fx-highlight-text-fill: white;
+}
+
+.search-field:focused {
+    -fx-border-color: -accent;
+}
+
+.theme-toggle {
+    -fx-background-color: -bg-control;
+    -fx-background-radius: 6;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 6;
+    -fx-text-fill: -text-primary;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.theme-toggle:hover {
+    -fx-background-color: -bg-hover;
+}
+
+.theme-toggle:selected {
+    -fx-background-color: -accent;
+    -fx-text-fill: white;
+    -fx-border-color: -accent;
+}
+
+.footer {
+    -fx-background-color: -bg-surface;
+    -fx-padding: 6 24 14 24;
+}
+
+.add-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 6 10 6 10;
+    -fx-background-radius: 4;
+}
+
+.add-button:hover {
+    -fx-background-color: -bg-hover;
+    -fx-text-fill: -text-primary;
+}
+
+/* =========================================================
+   Table
+   ========================================================= */
+
+.kanban-table {
+    -fx-background-color: -bg-base;
+    -fx-table-cell-border-color: -border-color;
+    -fx-border-color: transparent;
+}
+
+.kanban-table .column-header-background {
+    -fx-background-color: -bg-header;
+}
+
+.kanban-table .column-header,
+.kanban-table .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -border-color transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-size: 42px;
+}
+
+.kanban-table .column-header .label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.kanban-table .table-row-cell {
+    -fx-background-color: -bg-surface;
+    -fx-table-cell-border-color: -border-color;
+    -fx-border-color: transparent transparent -border-color transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.kanban-table .table-row-cell:hover {
+    -fx-background-color: -bg-hover;
+}
+
+.kanban-table .table-row-cell:selected {
+    -fx-background-color: -bg-hover;
+    -fx-table-cell-border-color: -border-color;
+}
+
+.kanban-table .table-row-cell:empty {
+    -fx-background-color: -bg-base;
+    -fx-border-width: 0;
+}
+
+.kanban-table .table-cell {
+    -fx-text-fill: -text-primary;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 4 12 4 12;
+    -fx-border-color: transparent;
+}
+
+.kanban-table .table-cell .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: transparent;
+    -fx-highlight-fill: -accent;
+    -fx-highlight-text-fill: white;
+}
+
+.table-placeholder {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 13px;
+}
+
+/* =========================================================
+   Priority bars
+   ========================================================= */
+
+.priority-bar {
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-opacity: 0.30;
+}
+
+.priority-bar:hover {
+    -fx-opacity: 0.65;
+}
+
+.priority-bar.selected {
+    -fx-opacity: 1.0;
+}
+
+.priority-high {
+    -fx-background-color: #eb5757;
+}
+
+.priority-medium {
+    -fx-background-color: #f2c94c;
+}
+
+.priority-low {
+    -fx-background-color: #4caf82;
+}
+
+/* =========================================================
+   Status tags
+   ========================================================= */
+
+.status-combo,
+.status-combo:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.status-combo .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 4 0 0;
+}
+
+.status-combo .arrow {
+    -fx-background-color: -text-secondary;
+}
+
+.status-combo .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 2 0 2 0;
+}
+
+.status-tag {
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 4;
+    -fx-font-size: 12px;
+}
+
+.status-not-started {
+    -fx-background-color: -border-color;
+    -fx-text-fill: -text-secondary;
+}
+
+.status-in-progress {
+    -fx-background-color: #fdecc8;
+    -fx-text-fill: #b9650a;
+}
+
+.status-done {
+    -fx-background-color: #d6ede1;
+    -fx-text-fill: #2f8f5b;
+}
+
+.dark-mode .status-not-started {
+    -fx-background-color: #3d3d3d;
+    -fx-text-fill: #d4d4d4;
+}
+
+.dark-mode .status-in-progress {
+    -fx-background-color: #51371b;
+    -fx-text-fill: #ffc97f;
+}
+
+.dark-mode .status-done {
+    -fx-background-color: #1f3b2c;
+    -fx-text-fill: #8fdfb0;
+}
+
+/* =========================================================
+   Project & Deadline controls
+   ========================================================= */
+
+.project-combo,
+.project-combo:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.project-combo .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-primary;
+}
+
+.project-combo .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.project-combo .arrow {
+    -fx-background-color: -text-secondary;
+}
+
+.deadline-picker,
+.deadline-picker:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.deadline-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: transparent;
+}
+
+.deadline-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.deadline-picker .arrow {
+    -fx-background-color: -text-secondary;
+}
+
+/* =========================================================
+   Popups (dropdown lists, calendar)
+   ========================================================= */
+
+.combo-box-popup .list-view {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -border-color;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: -bg-surface;
+    -fx-text-fill: -text-primary;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: -bg-hover;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: -accent;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -border-color;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -bg-header;
+}
+
+.date-picker-popup .spinner .label,
+.date-picker-popup .day-name-cell,
+.date-picker-popup .day-cell {
+    -fx-text-fill: -text-primary;
+}
+
+.date-picker-popup > .day-cell:hover {
+    -fx-background-color: -bg-hover;
+}
+
+.date-picker-popup > .day-cell:selected {
+    -fx-background-color: -accent;
+    -fx-text-fill: white;
+}
