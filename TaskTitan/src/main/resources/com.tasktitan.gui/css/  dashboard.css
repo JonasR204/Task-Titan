@@ -1,0 +1,17 @@
+
+/* Mouse Hover Effect */
+.sidebar-btn:hover {
+    -fx-background-color: #00E5FF !important;
+    -fx-text-fill: black !important;
+    -fx-border-color: white;
+    -fx-border-radius: 10;
+}
+
+.filter-combo {
+    -fx-background-color: transparent;
+    -fx-font-size: 13px;
+}
+
+.filter-combo .arrow-button {
+    -fx-background-color: transparent;
+}
