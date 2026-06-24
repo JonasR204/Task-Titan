@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.time.*;
 import java.util.Map;
 import java.util.HashMap;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 enum Priority {LOW, MEDIUM, HIGH, URGENT, PAST_DEADLINE}
@@ -12,7 +13,7 @@ enum TaskType {FEATURE, BUG}
 public class GUI {
 
     //Task
-    private List<Task> tasks;
+    private List<Task> tasks = new ArrayList<>();
     private int nextTaskId;
 
     //Date
@@ -28,11 +29,11 @@ public class GUI {
     //private Color[] priorityColors;
 
     //Team Members
-    private List<TeamMember> teamMembers;
+    private List<TeamMember> teamMembers = new ArrayList<>();
     private int nextTeamMemberId;
 
     //Roles
-    private List<String> roles;
+    private List<String> roles = new ArrayList<>();
 
     //Filter
 
@@ -43,6 +44,64 @@ public class GUI {
     public GUI (){
         SetDefaultUrgencyLevel();
         SetIRLTime();
+    }
+
+    public void FilterSetUp(TaskStatus status, boolean daysLeftToggle, int daysLeftBottom, int daysLeftTop,
+                            TeamMember assignedMember, TaskType taskType){
+        int filterDemand = 0;
+        int statusValue = 1;
+        int memberValue = 10;
+        int taskTypeValue = 100;
+        int daysLeftValue = 1000;
+
+        if(status != null){filterDemand += statusValue;}
+        if(assignedMember != null){filterDemand += memberValue;}
+        if(taskType != null){filterDemand += taskTypeValue;}
+        if(daysLeftToggle) {
+            if (daysLeftBottom <= daysLeftTop) {
+                filterDemand += daysLeftValue;
+            } else {
+                //Error msg
+                return;
+            }
+        }
+
+        if(filterDemand == 0){
+            ResetFilter();
+        }else{
+            if(tasks != null) {
+                for (int i = 0; i < tasks.size(); i++) {
+                    int filterCompatibility = 0;
+                    if(tasks.get(i).GetStatus() == status){filterCompatibility += statusValue;}
+                    if(assignedMember != null) {
+                        if (tasks.get(i).GetAssignedMember().GetID() == assignedMember.GetID()) {
+                            filterCompatibility += memberValue;
+                        }
+                    }
+                    if(tasks.get(i).GetTaskType() == taskType){filterCompatibility += taskTypeValue;}
+                    int daysTillDeadline = Utility.GetDaysBetweenDates(currentDate, tasks.get(i).GetDeadline());
+                    if(daysLeftToggle) {
+                        if (daysTillDeadline >= daysLeftBottom && daysTillDeadline <= daysLeftTop) {
+                            filterCompatibility += daysLeftValue;
+                        }
+                    }
+
+                    if(filterDemand == filterCompatibility){
+                        tasks.get(i).filterParameter = true;
+                    }else{
+                        tasks.get(i).filterParameter = false;
+                    }
+                }
+            }
+        }
+    }
+
+    public void ResetFilter (){
+        if(tasks != null) {
+            for (int i = 0; i < tasks.size(); i++) {
+                tasks.get(i).filterParameter = true;
+            }
+        }
     }
 
     //##################################################################################################################
@@ -208,6 +267,15 @@ public class GUI {
         LocalDate lc = LocalDate.of(2026, 6, 30);
 
         System.out.println(Utility.GetDaysBetweenDates(g.currentDate, lc));
+
+        TeamMember t = new TeamMember(0, "", "", "");
+        TeamMember t2 = new TeamMember(1, "", "", "");
+        g.AddTask("", "", Priority.HIGH, TaskStatus.COMPLETED, lc, t, "");
+
+        g.FilterSetUp(null, true,6, 6, null, TaskType.FEATURE);
+        System.out.println(g.GetTask(1).filterParameter);
     }
 }
+
+
 
