@@ -11,6 +11,8 @@ public abstract class Task {
     protected TeamMember assignedMember;
     protected TaskType taskType;
 
+    public boolean filterParameter = true;
+
 
     public Task(int id, String title,String description, Priority priority,
                 TaskStatus status, LocalDate deadline, TeamMember assignedMEmber){
