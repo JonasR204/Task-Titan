@@ -99,8 +99,8 @@ public class MembersController {
             System.out.println("Member deleted");
 
             refreshTable();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException exception) {
+            exception.printStackTrace();
         }
         }
 
