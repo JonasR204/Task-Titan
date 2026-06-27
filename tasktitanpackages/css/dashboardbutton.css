@@ -1,0 +1,16 @@
+/* Mouse Hover Effect */
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-alignment: center;
+    -fx-padding: 15;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #00E5FF;
+    -fx-text-fill: black;
+    -fx-background-radius: 10;
+}
