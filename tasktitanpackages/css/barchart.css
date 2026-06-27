@@ -1,0 +1,27 @@
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: #102636;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #2F4F5F;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #2F4F5F;
+}
+
+.axis {
+    -fx-tick-label-fill: white;
+}
+
+.axis-label {
+    -fx-text-fill: white;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #19D3F3;
+}
