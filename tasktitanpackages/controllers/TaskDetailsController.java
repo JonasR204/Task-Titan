@@ -1,11 +1,9 @@
 package com.tasktitan.gui.controllers;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import model.Task;
 import model.BugTask;
@@ -36,6 +34,12 @@ public class TaskDetailsController {
     @FXML
     private TextArea technicalSpecificationArea;
 
+
+    /**
+     * Displays the details of the selected task in the task details window.
+     * If the task is a bug, the bug-specific fields are shown.
+     * If the task is a feature, the feature-specific fields are shown.
+     */
     public void setTask(Task task) {
 
         descriptionArea.setText(task.getDescription());
