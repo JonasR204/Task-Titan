@@ -1,0 +1,26 @@
+.scroll-bar:vertical {
+    -fx-background-color: #0D2B45;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #1BC5E8;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #12334E;
+}
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #102636;
+    -fx-background-radius: 18;
+}
+
+.scroll-pane .corner {
+    -fx-background-color: #102636;
+}
